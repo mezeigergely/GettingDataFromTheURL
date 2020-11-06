@@ -12,16 +12,15 @@
     </div>
     <div style="text-align: center">
         <?php
+        $site_array = [];
         if (isset($_GET['submit'])) {
             $url = $_GET['url'];
             $data = file_get_contents($url);
-        }
-
-        $exploded_data = explode(" ", $data);
-
-        foreach ($exploded_data as $a) {
-            if (strpos($a, "a") || strpos($a, "A")) {
-                echo $a . ",";
+            $split = explode(" ", $data);
+            foreach ($split as $i) {
+                if (stripos($i, "a")) {
+                    echo $i;
+                }
             }
         }
 
